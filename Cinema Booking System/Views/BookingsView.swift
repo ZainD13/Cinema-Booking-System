@@ -38,3 +38,19 @@ struct BookingsView: View {
         }
     }
 }
+
+#Preview {
+    let system = BookingSystem()
+
+    let sampleMovie = Movie(
+        title: "Interstellar",
+        genre: "Sci-Fi",
+        duration: 169,
+        poster: "interstellar"
+    )
+
+    system.book(movie: sampleMovie)
+
+    return BookingsView()
+        .environmentObject(system)
+}

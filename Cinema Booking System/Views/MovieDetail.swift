@@ -55,3 +55,15 @@ struct MovieDetailView: View {
         .padding()
     }
 }
+
+#Preview {
+    let sampleMovie = Movie(
+        title: "Inception",
+        genre: "Sci-Fi",
+        duration: 148,
+        poster: "inception"
+    )
+
+    return MovieDetailView(movie: sampleMovie)
+        .environmentObject(BookingSystem())
+}
