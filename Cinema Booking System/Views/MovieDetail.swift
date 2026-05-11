@@ -14,7 +14,6 @@ struct MovieDetailView: View {
     var body: some View {
         VStack(spacing: 20) {
 
-            // full movie poster
             Image(movie.poster)
                 .resizable()
                 .scaledToFit()
@@ -30,6 +29,7 @@ struct MovieDetailView: View {
             Text("Duration: \(movie.duration) mins")
 
             if bookingSystem.isBooked(movie: movie) {
+
                 Button(role: .destructive) {
                     if let booking = bookingSystem.bookings.first(where: { $0.movie == movie }) {
                         bookingSystem.cancel(booking: booking)
@@ -41,8 +41,9 @@ struct MovieDetailView: View {
                 }
 
             } else {
-                Button {
-                    bookingSystem.book(movie: movie)
+
+                NavigationLink {
+                    BookingFormView(movie: movie)
                 } label: {
                     Text("Book Movie")
                         .padding()

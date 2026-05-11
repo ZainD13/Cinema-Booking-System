@@ -11,4 +11,5 @@ struct Booking: Identifiable, Hashable {
     let id = UUID()
     let movie: Movie
     let date: Date
+    let seat: String
 }

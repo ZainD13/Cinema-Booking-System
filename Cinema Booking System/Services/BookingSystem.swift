@@ -12,8 +12,8 @@ import Combine
 final class BookingSystem: ObservableObject {
     @Published private(set) var bookings: [Booking] = []
 
-    func book(movie: Movie) {
-        let newBooking = Booking(movie: movie, date: Date())
+    func book(movie: Movie, seat: String) {
+        let newBooking = Booking(movie: movie, date: Date(), seat: seat)
         bookings.append(newBooking)
     }
 
@@ -23,5 +23,9 @@ final class BookingSystem: ObservableObject {
 
     func isBooked(movie: Movie) -> Bool {
         bookings.contains { $0.movie == movie }
+    }
+
+    func seatTaken(seat: String) -> Bool {
+        bookings.contains { $0.seat == seat }
     }
 }

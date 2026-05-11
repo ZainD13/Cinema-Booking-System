@@ -49,7 +49,8 @@ struct BookingsView: View {
         poster: "interstellar"
     )
 
-    system.book(movie: sampleMovie)
+    // Add a sample booking so the preview has data
+    system.book(movie: sampleMovie, seat: "A1")
 
     return BookingsView()
         .environmentObject(system)
